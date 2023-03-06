@@ -18,7 +18,8 @@ public class OnlineLibraryApp {
 	@RequestMapping("/user")
 	public String user(@AuthenticationPrincipal OAuth2User principal) {
 		System.out.println(principal);
-		return principal.getAttribute("name");
+		String login = (String) principal.getAttributes().get("login");
+		return login;
 	}
 	
 
